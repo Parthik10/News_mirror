@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Parthik10/News_mirror.git/static/css/main.9042cb4e.css",
+    "main.js": "/Parthik10/News_mirror.git/static/js/main.e34a950a.js",
+    "static/js/592.7b2f0a0f.chunk.js": "/Parthik10/News_mirror.git/static/js/592.7b2f0a0f.chunk.js",
+    "static/media/loading.gif": "/Parthik10/News_mirror.git/static/media/loading.c1b8565f12c3c976ba01.gif",
+    "index.html": "/Parthik10/News_mirror.git/index.html",
+    "main.9042cb4e.css.map": "/Parthik10/News_mirror.git/static/css/main.9042cb4e.css.map",
+    "main.e34a950a.js.map": "/Parthik10/News_mirror.git/static/js/main.e34a950a.js.map",
+    "592.7b2f0a0f.chunk.js.map": "/Parthik10/News_mirror.git/static/js/592.7b2f0a0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9042cb4e.css",
+    "static/js/main.e34a950a.js"
+  ]
+}
