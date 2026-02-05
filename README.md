@@ -53,6 +53,37 @@ We utilized **Flower (flwr)**, a unified framework for federated learning. Flowe
 ### 2. Client-Server Architecture
 The system follows a star topology where a central server orchestrates the training, and $N\_client=2$ (in our simulation) clients perform the actual computation.
 
+**System Flowchart:**
+
+```mermaid
+graph TD
+    User([User / Doctor]) -->|Select Dataset & Start| UI[Streamlit UI]
+    UI -->|Spawns Subprocess| Backend[Backend Runner]
+    
+    subgraph "Simulation Engine (Ray)"
+        Backend -->|Initializes| Server[Flower Server]
+        Server -->|Broadcast Global Model| Client1[Client 1]
+        Server -->|Broadcast Global Model| Client2[Client 2]
+        
+        Client1 -->|Send Model Weights| Server
+        Client2 -->|Send Model Weights| Server
+    end
+    
+    subgraph "Local Private Data"
+        Data1[(X-Ray / MRI)] --- Client1
+        Data2[(X-Ray / MRI)] --- Client2
+    end
+    
+    Backend -.->|Writes Logs| StateFile(simulation_state.json)
+    StateFile -.->|Reads Progress| UI
+    
+    style User fill:#f9f,stroke:#333
+    style UI fill:#bbf,stroke:#333
+    style Server fill:#f96,stroke:#333
+    style Client1 fill:#dfd,stroke:#333
+    style Client2 fill:#dfd,stroke:#333
+```
+
 **Workflow:**
 1.  **Server Initialization**: The server starts and waits for clients to connect.
 2.  **Model Distribution**: The server sends the initial model parameters to selected clients.
